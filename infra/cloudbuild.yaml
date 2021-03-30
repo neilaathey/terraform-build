@@ -1,18 +1,18 @@
 steps:
  # 0. Initialise Terraform environment
--  name: hashicorp/terraform:0.13.0
+-  name: hashicorp/terraform:0.13.5
    id: terraform-init
    args: ['init']
    dir: 'infra/'
 
  # 1. Select Target Workspace
--  name: hashicorp/terraform:0.13.0
+-  name: hashicorp/terraform:0.13.5
    id: terraform-workspace
    args: ['workspace', 'select', '${_ENV}']
    dir: 'infra/'
 
  # 12. Apply Terraform
--  name: hashicorp/terraform:0.13.0
+-  name: hashicorp/terraform:0.13.5
    id: terraform-apply
    args: ['apply', '-auto-approve']
    dir: 'infra/'

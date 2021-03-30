@@ -1,0 +1,7 @@
+steps:
+ # 0. Initialise Terraform environment
+-  name: hashicorp/terraform:0.13.0
+   id: terraform-init
+   args: [‘init’]
+   dir: ‘infra/’
+

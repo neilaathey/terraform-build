@@ -13,6 +13,6 @@ steps:
 
  # 2. Plan Terraform
 -  name: hashicorp/terraform:0.13.5
-   id: terraform-apply
+   id: terraform-plan
    args: ['${_TF_ACTION}']
    dir: 'infra/'

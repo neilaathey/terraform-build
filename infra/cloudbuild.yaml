@@ -5,11 +5,11 @@ steps:
    args: ['init']
    dir: 'infra/'
 
- # 1. Select Target Workspace
--  name: hashicorp/terraform:0.13.5
-   id: terraform-workspace
-   args: ['workspace', 'select', '${_ENV}']
-   dir: 'infra/'
+#  # 1. Select Target Workspace
+# -  name: hashicorp/terraform:0.13.5
+#    id: terraform-workspace
+#    args: ['workspace', 'select', '${_ENV}']
+#    dir: 'infra/'
 
  # 2. Plan Terraform
 -  name: hashicorp/terraform:0.13.5

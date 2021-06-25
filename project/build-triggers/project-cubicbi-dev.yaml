@@ -1,0 +1,37 @@
+triggers:
+
+# examples
+  # Build-barbfiles-infrastructure:
+  #   type: app_push_trigger
+  #   cloudbuild_path: infrastructure/scripts/cloudbuild.yaml
+  #   included_files: [] # TODO - this should be updated
+  #   branch_regex: '^cloud-build-refactor$' # TODO
+  #   substitutions:
+  #     _ENVNAME: dev
+  #   extra_attributes: {}
+
+  # universe-infra:
+  #   type: terraform
+  #   cloudbuild_path: application_modules/universe/infra/cloudbuild.yaml
+  #   included_files:
+  #     - application_modules/universe/infra/**
+  #   substitutions: {}
+  #   extra_attributes: {}
+
+  # cf-universe-processor:
+  #   type: terraform
+  #   cloudbuild_path: application_modules/universe/cf_universe_processor/cloudbuild.yaml
+  #   included_files:
+  #     - application_modules/universe/cf_universe_processor/**
+  #     - code/packages/**
+  #   substitutions: {}
+  #   extra_attributes: {}
+
+  infra:
+    type: terraform
+    cloudbuild_path: infra/cloudbuild.yaml
+    included_files:
+      - infra/**
+    substitutions: {}
+    extra_attributes: {}
+

@@ -1,0 +1,19 @@
+substitutions:
+  _APP: 'triggers'
+  _DIR: 'project/build-triggers'
+  _TF_ACTION: 'apply'
+
+steps:
+- id: 'tf plan/apply'
+  name: 'gcr.io/bi-builds-prd/terragrunt'
+  dir: '${_DIR}'
+  args:
+  - '${_TF_ACTION}'
+  env:
+  - 'PULL_REQUEST_ID=$_PR_NUMBER'
+  - 'BRANCH=$BRANCH_NAME'
+
+options:
+    substitution_option: 'ALLOW_LOOSE'
+timeout: 1200s
+tags: ['cubicbi-${_APP}-${_TF_ACTION}']

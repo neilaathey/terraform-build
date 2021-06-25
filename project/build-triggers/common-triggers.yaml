@@ -1,0 +1,69 @@
+# # Add triggers to this file to apply to all GCP projects
+triggers:
+#   00-iam:
+#     type: terraform
+#     cloudbuild_path: project/iam/cloudbuild.yaml
+#     branch_regex: ^master$
+#     included_files:
+#       - project/iam/*.tf
+#       - project/iam/project-${project_id}.yaml
+#       - project/iam/common-settings.yaml
+#     substitutions: {}
+#     extra_attributes: 
+#       disabled: false
+
+#   00-triggers:
+#     type: terraform
+#     cloudbuild_path: project/build-triggers/cloudbuild.yaml
+#     branch_regex: ^master$
+#     included_files:
+#       - project/build-triggers/*.tf
+#       - project/build-triggers/common-triggers.yaml
+#       - project/build-triggers/project-${project_id}.yaml
+#     substitutions: {}
+#     extra_attributes: 
+#       disabled: false
+
+#   build-step-terragrunt-${project_id}:
+#     type: app_push_trigger
+#     cloudbuild_path: project/build-steps/step-terragrunt/cloudbuild.yaml
+#     included_files:
+#       - project/build-steps/step-terragrunt/*
+#     substitutions: {}
+#     extra_attributes: {}
+
+#   infra-terraform-${project_id}:
+#     type: app_push_trigger
+#     cloudbuild_path: project/terraform/cloudbuild.yaml
+#     included_files:
+#       - project/terraform/*
+#     substitutions: {}
+#     extra_attributes: {}
+
+#   01-meta-project:
+#     type: terraform
+#     cloudbuild_path: project/project-meta/cloudbuild.yaml
+#     included_files:
+#       - project/project-meta/*.tf
+#       - project/project-meta/common-*.yaml
+#       - project/project-meta/project-${project_id}.yaml
+#     substitutions: {}
+#     extra_attributes: {}
+
+#   01-temp-infra:
+#     type: terraform
+#     cloudbuild_path: project/infra/temp/cloudbuild.yaml
+#     included_files:
+#       - project/infra/temp/*
+#       - project/infra/temp/${project_id}/*
+#     substitutions: {}
+#     extra_attributes: {}
+
+#   01-project-secrets:
+#     type: terraform
+#     cloudbuild_path: project/infra/secrets/cloudbuild.yaml
+#     included_files:
+#       - project/infra/secrets/main.tf
+#       - project/infra/secrets/project-${project_id}.yaml
+#     substitutions: {}
+#     extra_attributes: {}

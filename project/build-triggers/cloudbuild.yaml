@@ -5,7 +5,8 @@ substitutions:
 
 steps:
 - id: 'tf plan/apply'
-  name: 'gcr.io/bi-builds-prd/terragrunt'
+  name: hashicorp/terraform:0.13.5
+  #  name: 'gcr.io/bi-builds-prd/terragrunt'
   dir: '${_DIR}'
   args:
   - '${_TF_ACTION}'

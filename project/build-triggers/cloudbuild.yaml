@@ -1,7 +1,7 @@
 substitutions:
   _APP: 'triggers'
   _DIR: 'project/build-triggers'
-  _TF_ACTION: 'apply'
+  _TF_ACTION: 'apply -auto-approve'
 
 steps:
  # 0. Initialise Terraform environment
@@ -16,7 +16,7 @@ steps:
   #  name: 'gcr.io/bi-builds-prd/terragrunt'
   dir: '${_DIR}'
   args:
-  - '${_TF_ACTION}  -auto-approve'
+  - '${_TF_ACTION}'
   env:
   ####- 'PULL_REQUEST_ID=$_PR_NUMBER
   - 'BRANCH=$BRANCH_NAME'

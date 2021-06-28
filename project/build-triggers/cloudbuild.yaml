@@ -1,7 +1,7 @@
 substitutions:
   _APP: 'triggers'
   _DIR: 'project/build-triggers'
-  _TF_ACTION: 'apply -auto-approve'
+  _TF_ACTION: 'apply'
 
 steps:
  # 0. Initialise Terraform environment

@@ -16,7 +16,7 @@ steps:
   #  name: 'gcr.io/bi-builds-prd/terragrunt'
   dir: '${_DIR}'
   args:
-  - '${_TF_ACTION} -input=false -auto-approve'
+  - 'apply -input=false -auto-approve'
   env:
   ####- 'PULL_REQUEST_ID=$_PR_NUMBER
   - 'BRANCH=$BRANCH_NAME'

@@ -8,7 +8,7 @@ steps:
 -  id: terraform-init
    name: hashicorp/terraform:0.13.5
    dir: '${_DIR}'   
-   args: ['init']
+   args: ['init -input=false']
 
  # 1. Apply tf plan using hashicorp docker image 
 - id: 'tf plan/apply'
@@ -16,7 +16,7 @@ steps:
   #  name: 'gcr.io/bi-builds-prd/terragrunt'
   dir: '${_DIR}'
   args:
-  - '${_TF_ACTION}'
+  - '${_TF_ACTION -input=false -auto-approve}'
   env:
   ####- 'PULL_REQUEST_ID=$_PR_NUMBER
   - 'BRANCH=$BRANCH_NAME'

@@ -45,7 +45,7 @@ resource "google_cloudbuild_trigger" "terraform_apply" {
   included_files = each.value["included_files"]
   substitutions = merge(
     {
-      _TF_ACTION = "apply -auto-approve"
+      _TF_ACTION = "apply"
     },
     each.value["substitutions"]
   )

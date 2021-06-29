@@ -30,5 +30,5 @@ COPY post_plan.py /builder/post_plan.py
 COPY entrypoint.bash /builder/entrypoint.bash
 
 RUN chmod +x terraform terragrunt
-RUN chmod +x entrypoint.sh
+RUN chmod +x /builder/entrypoint.bash
 ENTRYPOINT ["/builder/entrypoint.bash"]

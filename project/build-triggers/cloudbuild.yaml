@@ -18,7 +18,7 @@ steps:
   args:
   - 'apply -input=false -auto-approve'
   env:
-  ####- 'PULL_REQUEST_ID=$_PR_NUMBER
+  - 'PULL_REQUEST_ID=$_PR_NUMBER
   - 'BRANCH=$BRANCH_NAME'
 
 options:

@@ -1,0 +1,28 @@
+substitutions:
+  _TERRAFORM_VERSION: 0.14.4
+  _TERRAGRUNT_VERSION: 0.27.1
+  _DIR: project/build-steps/step-terragrunt
+
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    dir: $_DIR
+    env:
+    - 'TERRAFORM_VERSION=${_TERRAFORM_VERSION}'
+    - 'TERRAGRUNT_VERSION=${_TERRAGRUNT_VERSION}'
+    args:
+    - 'build'
+    - '--build-arg'
+    - TERRAFORM_VERSION=${_TERRAFORM_VERSION}
+    - '--build-arg'
+    - TERRAGRUNT_VERSION=${_TERRAGRUNT_VERSION}
+    - '--tag'
+    - 'gcr.io/${PROJECT_ID}/terragrunt:${_TERRAFORM_VERSION}-${_TERRAGRUNT_VERSION}'
+    - '--tag'
+    - 'gcr.io/${PROJECT_ID}/terragrunt:latest'
+    - '.'
+
+images:
+- 'gcr.io/${PROJECT_ID}/terragrunt:${_TERRAFORM_VERSION}-${_TERRAGRUNT_VERSION}'
+- 'gcr.io/${PROJECT_ID}/terragrunt:latest'
+
+tags: ['barb-service-step-terragrunt']

@@ -1,0 +1,3 @@
+PyGithub==1.54.1
+deterministic-zip==0.1
+pyunpack==0.2.2

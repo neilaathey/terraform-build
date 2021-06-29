@@ -32,7 +32,7 @@ locals {
   common_env_settings = yamldecode(templatefile("${path.cwd}/common-${local.env}.yaml", { project_id = var.project_id }))
   repo_root_dir       = "${path.cwd}/../.."
   repo_org            = "cubic-bi"
-  repo_name           = "neilaathey/terraform-build"
+  repo_name           = "terraform-build"
 }
 
 variable "project_id" {

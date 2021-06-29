@@ -12,8 +12,8 @@ steps:
 
  # 1. Apply tf plan using hashicorp docker image 
 - id: 'tf plan/apply'
-  name: hashicorp/terraform:0.13.5
-  #  name: 'gcr.io/bi-builds-prd/terragrunt'
+  #name: hashicorp/terraform:0.13.5
+  name: 'gcr.io/bi-builds-prd/terragrunt'
   dir: '${_DIR}'
   args:
   - 'apply -input=false -auto-approve'

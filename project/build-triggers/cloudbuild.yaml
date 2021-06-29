@@ -10,12 +10,12 @@ steps:
 #    dir: '${_DIR}'   
 #    args: ['init -input=false'] 
 
- # 1. Apply tf plan using hashicorp docker image 
+ # 1. Apply tf plan using custom terragrunt docker image 
 - id: 'tf plan/apply'
   name: 'gcr.io/cubicbi-dev/terragrunt'
   dir: '${_DIR}'
   args:
-  - 'apply -input=false -auto-approve'
+  - 'apply'
   env:
   - 'PULL_REQUEST_ID=$_PR_NUMBER'
   - 'BRANCH=$BRANCH_NAME'

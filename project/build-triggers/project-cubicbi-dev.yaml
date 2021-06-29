@@ -27,7 +27,7 @@ triggers:
   #   substitutions: {}
   #   extra_attributes: {}
 
-  infra:
+  neils-infra-trigger:
     type: terraform
     cloudbuild_path: infra/cloudbuild.yaml
     included_files:

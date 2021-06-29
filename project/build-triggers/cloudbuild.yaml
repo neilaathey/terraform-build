@@ -12,7 +12,7 @@ steps:
 
  # 1. Apply tf plan using hashicorp docker image 
 - id: 'tf plan/apply'
-  name: 'gcr.io/bi-builds-prd/terragrunt'
+  name: 'gcr.io/cubicbi-dev/terragrunt'
   dir: '${_DIR}'
   args:
   - 'apply -input=false -auto-approve'

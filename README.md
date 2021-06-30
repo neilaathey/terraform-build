@@ -5,11 +5,21 @@
 # Useful notes:
 
 GCP Projects
-cubicbi-dev01  & cubicbi (prod)
 
+gcloud auth application-default login
 
 Project structure
 Tf code is based on project name suffix to be 3 chars - ie dev or prd - e.g. cubicbi-dev 
+
+# TERRAGRUNT DOCKER IMAGE
+- Check the folder 'step-terragrunt' and contents into Git
+- Set up cloud build trigger (manually?) - point to project\build-steps\step-terragrunt\cloudbuild.yaml 
+- Run the build (manually?) and set trigger to 'Disabled' - so it does not run each time something changes
+- This creates the Docker image and stores in the GCP Container Registry - gcr.io
+- 'entrypoint.bash' controls the execution steps ie plan, apply (with auto-approve) etc  plus post_plan.py execution
+
+
+
 
 # GIT
 

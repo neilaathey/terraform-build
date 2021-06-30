@@ -7,7 +7,7 @@ GH_SECRET_NAME="${GH_SECRET_NAME:-github-robot-token}"
 GH_SECRET_VERSION="${GH_SECRET_VERSION:-latest}"
 PARALLELISM="${PARALLELISM:-100}"
 BRANCH="${BRANCH:-fix-your-cloudbuild}"
-REPO_NAME="${REPO_NAME:-neilaathey/terraform=build}"
+REPO_NAME="${REPO_NAME:-neilaathey/terraform-build}"
 if [[ "$PROJECT_ID" =~ -prd$ ]]; then
     POST_PR_OUTPUT="${POST_PR_OUTPUT:-1}"
     GH_SECRET_PROJECT="${GH_SECRET_PROJECT:-bi-shared-secrets-prd}"

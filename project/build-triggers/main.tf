@@ -31,8 +31,8 @@ locals {
   env                 = lookup(local.project_settings, "env", substr(var.project_id, -3, -3))
   common_env_settings = yamldecode(templatefile("${path.cwd}/common-${local.env}.yaml", { project_id = var.project_id }))
   repo_root_dir       = "${path.cwd}/../.."
-  repo_org            = ""
-  repo_name           = "github_neilaathey_terraform-build"
+  repo_org            = "neilaathey"
+  repo_name           = "terraform-build"
 }
 
 variable "project_id" {

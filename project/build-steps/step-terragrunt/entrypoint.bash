@@ -21,8 +21,7 @@ else
     DESTROY_FLAG=""
 fi
 
-echo
-echo ****Initialising terraform in docker image
+echo Initialising terraform in docker image
 
 terraform init -input=false -lock-timeout=5m -backend-config="bucket=tfstate-${PROJECT_ID}" || exit 1
 

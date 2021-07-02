@@ -1,0 +1,325 @@
+[
+  {
+    "mode": "REQUIRED",
+    "name": "Full_File_Name",
+    "type": "STRING"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "Date_Loaded",
+    "type": "TIMESTAMP"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "YearMonth",
+    "type": "INTEGER"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "Record_Type",
+    "type": "INTEGER"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "Effective_from_date",
+    "type": "DATE"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "Effective_to_date",
+    "type": "DATE"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "Reporting_Panel_Code",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_1",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_2",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_3",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_4",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_5",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_6",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_7",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_8",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_9",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_10",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_11",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_12",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_13",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_14",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_15",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_16",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_17",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_18",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_19",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_20",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_21",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_22",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_23",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_24",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_25",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_26",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_27",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_28",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_29",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_30",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_31",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_32",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_33",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_34",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_35",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_36",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_37",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_38",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_39",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_40",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_41",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_42",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_43",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_44",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_45",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_46",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_47",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_48",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_49",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_50",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_51",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_52",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_53",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_54",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_55",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_56",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_57",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_58",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_59",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_60",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_61",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_62",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_63",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_64",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_65",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_66",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_67",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_68",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_69",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_70",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Audience_Category_71",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Padding",
+    "type": "STRING"
+  }
+]

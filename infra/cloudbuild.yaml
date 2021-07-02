@@ -1,18 +1,18 @@
+substitutions:
+  _DIR: 'infra'
+  _APP: 'universe-infra'
+  _TF_ACTION: 'apply'
 steps:
- # 0. Initialise Terraform environment
--  name: hashicorp/terraform:0.13.5
-   id: terraform-init
-   args: ['init']
-   dir: 'infra/'
 
-#  # 1. Select Target Workspace
-# -  name: hashicorp/terraform:0.13.5
-#    id: terraform-workspace
-#    args: ['workspace', 'select', '${_ENV}']
-#    dir: 'infra/'
+- id: 'tf plan/apply'
+  name: 'gcr.io/cubicbi-dev/terragrunt'
+  dir: '${_DIR}'
+  args:
+  - '${_TF_ACTION}'
+  env:
+  - 'PULL_REQUEST_ID=$_PR_NUMBER'
+  - 'BRANCH=$BRANCH_NAME'
 
- # 2. Plan Terraform
--  name: hashicorp/terraform:0.13.5
-   id: terraform-plan
-   args: ['${_TF_ACTION}']
-   dir: 'infra/'
+options:
+    substitution_option: 'ALLOW_LOOSE'
+tags: ['barb-service-${_APP}-${_TF_ACTION}']

@@ -2,12 +2,6 @@ output "test_output" {
   value = "Hello Neil!"  
 }
 
-variable "project_id" {
-  type        = string
-  default     = "cubicbi-dev01"
-  description = "Project ID to deploy resources in."
-}
-
 # data "google_project" "project" {
 #   project_id = "cubicbi-dev01"
 # }

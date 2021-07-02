@@ -1,0 +1,138 @@
+module "dataset_barb_universe" {
+  source       = "../common/terraform/modules/gcp_bigquery"
+  project_id   = var.project_id
+  dataset_id   = "barb_universe"
+  dataset_name = "barb_universe"
+  description  = "BARB Universe tables - transform"
+
+  tables = {
+    Universe = {
+      schema                      = file("schemas/barb_universe/tables/Universe.json")
+      require_partition_filter    = false
+      range_partitioning          = true
+      range_partitioning_field    = "YearMonth"
+      range_partitioning_start    = "201001"
+      range_partitioning_end      = "203712"
+      range_partitioning_interval = 1
+      time_partitioning           = false
+      clustering                  = "Reporting_Panel_code,Effective_from_date,Effective_to_date"
+    }
+    Universe_HeaderFooter = {
+      schema                   = file("schemas/barb_universe/tables/Universe_HeaderFooter.json")
+      require_partition_filter = false
+      time_partitioning        = false
+    }
+    Universe_Raw = {
+      schema                      = file("schemas/barb_universe/tables/Universe_Raw.json")
+      require_partition_filter    = false
+      range_partitioning          = true
+      range_partitioning_field    = "YearMonth"
+      range_partitioning_start    = "201001"
+      range_partitioning_end      = "203712"
+      range_partitioning_interval = 1
+      time_partitioning           = false
+      clustering                  = "Reporting_Panel_Code,Effective_from_date,Effective_to_date"
+    }
+    Universe_Raw_HeaderFooter = {
+      schema                   = file("schemas/barb_universe/tables/Universe_Raw_HeaderFooter.json")
+      require_partition_filter = false
+      time_partitioning        = false
+    }
+  }
+
+  views = {
+    vw_UniverseLatest = {
+      query          = file("schemas/barb_universe/views/vw_UniverseLatest.sql")
+      use_legacy_sql = false
+    }
+
+    split_factors = {
+      query          = file("schemas/barb_universe/views/split_factors.sql")
+      use_legacy_sql = false
+    }
+  }
+
+
+  # data_readers = [
+  #   "user:samuel.hepplewhite@itv.com" # Temporary so I can see the tables/views
+  # ]
+
+  data_owners = [
+    "user:neil.athey@itv.com"
+  ]
+  dataset_labels = {
+    business_area = "air_time_sales"
+    data_domain   = "barb"
+  }
+}
+
+
+# module "dataset_barb_universe_processing" {
+#   source       = "../common/terraform/modules/gcp_bigquery"
+#   project_id   = var.project_id
+#   dataset_id   = "barb_universe_processing"
+#   dataset_name = "barb_universe_processing"
+#   tables = {
+#     Process_Log = {
+#       schema            = file("schemas/barb_universe_processing/tables/Process_Log.json")
+#       time_partitioning = false
+#     }
+#   }
+#   views = {
+#     vw_tr1_Daily_Universe_File_Data_Record_PlusDerivedAudiences = {
+#       query          = file("schemas/barb_universe_processing/views/vw_tr1_Daily_Universe_File_Data_Record_PlusDerivedAudiences.sql")
+#       use_legacy_sql = false
+#     }
+#     vw_tr2_barb_universe_nested = {
+#       query          = file("schemas/barb_universe_processing/views/vw_tr2_barb_universe_nested.sql")
+#       use_legacy_sql = false
+#     }
+#     vw_tr3_barb_universe_demos = {
+#       query          = file("schemas/barb_universe_processing/views/vw_tr3_barb_universe_demos.sql")
+#       use_legacy_sql = false
+#     }
+#     vw_tr4_barb_universe_demos_with_split_area_factor = {
+#       query          = file("schemas/barb_universe_processing/views/vw_tr4_barb_universe_demos_with_split_area_factor.sql")
+#       use_legacy_sql = false
+#     }
+#     vw_tr5_barb_universe_demos_with_ITVtables = {
+#       query          = file("schemas/barb_universe_processing/views/vw_tr5_barb_universe_demos_with_ITVtables.sql")
+#       use_legacy_sql = false
+#     }
+#   }
+
+#   routines = {
+#     usp_UniverseTransform = {
+#       definition_body = file("schemas/barb_universe_processing/stored_procedures/usp_UniverseTransform.sql")
+#       routine_type    = "PROCEDURE"
+#       arguments = [
+#         {
+#           name      = "file_name"
+#           data_type = "STRING"
+#         }
+#       ]
+#     }
+#   }
+
+#   data_owners = [
+#     "user:neil.athey@itv.com"
+#   ]
+# }
+
+# module "dataset_barb_universe_staging" {
+#   source       = "../common/terraform/modules/gcp_bigquery"
+#   project_id   = var.project_id
+#   dataset_id   = "barb_universe_staging"
+#   dataset_name = "barb_universe_staging"
+#   description  = "BARB Universe tables - staging"
+
+#   dataset_labels = {
+#     business_area = "air_time_sales"
+#     data_domain   = "barb"
+#   }
+
+#     data_owners = [
+#     "user:neil.athey@itv.com"
+#   ]
+  
+# }

@@ -1,0 +1,38 @@
+[
+  {
+    "type": "STRING",
+    "name": "ProcessName",
+    "mode": "REQUIRED"
+  },
+  {
+    "type": "STRING",
+    "name": "ProcessType",
+    "mode": "REQUIRED"
+  },
+  {
+    "type": "STRING",
+    "name": "ProcessMessage",
+    "mode": "REQUIRED"
+  },
+  {
+    "type": "TIMESTAMP",
+    "name": "ProcessDatetime",
+    "mode": "REQUIRED"
+  },
+  {
+    "type": "STRING",
+    "name": "DestinationTable"
+  },
+  {
+    "type": "INTEGER",
+    "name": "RowsProcessed"
+  },
+  {
+    "type": "STRING",
+    "name": "BARB_File_Name"
+  },
+  {
+    "type": "STRING",
+    "name": "Full_File_Name"
+  }
+]

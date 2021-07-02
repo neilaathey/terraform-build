@@ -1,0 +1,37 @@
+[
+  {
+    "mode": "REQUIRED",
+    "name": "File_Creation_Datetime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "File_Type",
+    "type": "STRING"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "File_Version",
+    "type": "INTEGER"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "BARB_File_Name",
+    "type": "STRING"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "File_Row_Count",
+    "type": "INTEGER"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "Full_File_Name",
+    "type": "STRING"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "Date_Loaded",
+    "type": "TIMESTAMP"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "File_Creation_Datetime",
+    "type": "TIMESTAMP"
+  },
+  {
+    "name": "File_Type",
+    "type": "STRING"
+  },
+  {
+    "name": "File_Version",
+    "type": "INTEGER"
+  },
+  {
+    "name": "BARB_File_Name",
+    "type": "STRING"
+  },
+  {
+    "name": "File_Row_Count",
+    "type": "INTEGER"
+  },
+  {
+    "name": "Full_File_Name",
+    "type": "STRING"
+  },
+  {
+    "name": "Date_Loaded",
+    "type": "TIMESTAMP"
+  }
+]

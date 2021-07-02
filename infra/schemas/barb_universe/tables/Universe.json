@@ -1,0 +1,82 @@
+[
+  {
+    "type": "STRING",
+    "name": "Full_File_Name"
+  },
+  {
+    "type": "TIMESTAMP",
+    "name": "Date_Loaded"
+  },
+  {
+    "type": "INTEGER",
+    "name": "sare_no"
+  },
+  {
+    "type": "STRING",
+    "name": "sare_name"
+  },
+  {
+    "type": "INTEGER",
+    "name": "Reporting_Panel_code"
+  },
+  {
+    "type": "STRING",
+    "name": "Panel_Name"
+  },
+  {
+    "type": "INTEGER",
+    "name": "Split_Transmission_Indicator"
+  },
+  {
+    "type": "STRING",
+    "name": "Split_Area_Name"
+  },
+  {
+    "type": "FLOAT",
+    "name": "Split_Area_Factor"
+  },
+  {
+    "type": "DATE",
+    "name": "Effective_from_date"
+  },
+  {
+    "type": "DATE",
+    "name": "Effective_to_date"
+  },
+  {
+    "type": "INTEGER",
+    "name": "YearMonth",
+    "mode": "REQUIRED"
+  },
+  {
+    "fields": [
+      {
+        "type": "INTEGER",
+        "name": "Category_No"
+      },
+      {
+        "type": "INTEGER",
+        "name": "Universe_Value"
+      },
+      {
+        "type": "STRING",
+        "name": "Audience_Short_Description"
+      },
+      {
+        "type": "INTEGER",
+        "name": "BARB_Audience_Category_Code"
+      },
+      {
+        "type": "STRING",
+        "name": "Audience_Description"
+      },
+      {
+        "type": "STRING",
+        "name": "Source"
+      }
+    ],
+    "type": "RECORD",
+    "name": "demo",
+    "mode": "REPEATED"
+  }
+]

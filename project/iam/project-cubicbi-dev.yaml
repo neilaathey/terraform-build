@@ -1,0 +1,116 @@
+custom_roles: 
+  file_transfer_sa:
+    role_id: file_transfer_sa
+    title: File Transfer SA
+    description: File Transfer service account role - set up by terraform for testing code
+    permissions:
+      - bigquery.datasets.create
+      - bigquery.datasets.get
+      - bigquery.jobs.create
+      - logging.logEntries.create
+      - pubsub.topics.publish
+      - secretmanager.versions.access
+      - serviceusage.services.use
+      - storage.buckets.get
+      - storage.objects.create
+      - storage.objects.delete
+      - storage.objects.get
+      - storage.objects.list
+      - storage.objects.update
+
+  # file_transfer_service:
+  #   role_id: file_transfer_service
+  #   title: File Transfer Service
+  #   description: File Transfer service account role
+  #   permissions:
+  #     - bigquery.datasets.create
+  #     - bigquery.datasets.get
+  #     - bigquery.jobs.create
+  #     - logging.logEntries.create
+  #     - pubsub.topics.publish
+
+
+  # file_transfer_test:
+  #   role_id: file_transfer_test
+  #   title: File Transfer TEST
+  #   description: File Transfer TEST role
+  #   permissions:
+  #     - bigquery.datasets.create
+  #     - bigquery.datasets.get
+  #     - bigquery.jobs.create
+  #     - logging.logEntries.create
+  #     - pubsub.topics.publish
+  #     - secretmanager.versions.access
+  #     - serviceusage.services.use
+  #     - storage.buckets.get
+  #     - storage.objects.create
+  #     - storage.objects.delete
+  #     - storage.objects.get
+  #     - storage.objects.list
+  #     - storage.objects.update
+  
+  # table_transfer_sa:
+  #   role_id: table_transfer_sa
+  #   title: Table transfer SA
+  #   description: Table transfer service account role
+  #   permissions:
+  #     - bigquery.datasets.create
+  #     - bigquery.datasets.get
+  #     - bigquery.jobs.create
+  #     - logging.logEntries.create
+  #     - secretmanager.versions.access
+  #     - serviceusage.services.use
+
+permissions:
+  projects/${current_project_id}/roles/file_transfer_sa:
+    - serviceAccount:file-transfer-sa@${current_project_id}.iam.gserviceaccount.com
+
+  # projects/${current_project_id}/roles/table_transfer_sa:
+  #   - serviceAccount:table-transfer-sa@${current_project_id}.iam.gserviceaccount.com
+
+  roles/bigquery.admin:
+    #- serviceAccount:processor-sa@${current_project_id}.iam.gserviceaccount.com
+    - neil@cubic-bi.com
+    - user:neil.athey@itv.com
+    - user:neilaathey@gmail.com
+
+  # #roles/bigquery.dataViewer:
+  #  # - serviceAccount:master-api-reader@${current_project_id}.iam.gserviceaccount.com
+  #   - user:neilpwaa@gmail.com
+
+  #roles/bigquery.jobUser: {}  # none yet
+   # - serviceAccount:master-api-reader@${current_project_id}.iam.gserviceaccount.com
+
+  # roles/bigquerydatatransfer.serviceAgent:
+  #   #- serviceAccount:service-${project_number.cubicbi-dev}@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com
+  #   - serviceAccount:service-${current_project_id}@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com
+
+  # roles/browser: {} # none yet
+  #   # - serviceAccount:${project_number.cubicbi-dev}-compute@developer.gserviceaccount.com
+  #   # - serviceAccount:${current_project_id}@appspot.gserviceaccount.com
+
+  # roles/editor:
+  #   - serviceAccount:${project_number.cubicbi-dev}@cloudservices.gserviceaccount.com
+  #   - user:neil.athey@itv.com
+
+  roles/owner:
+    - serviceAccount:${current_project_id}@cloudbuild.gserviceaccount.com
+    - user:neil@cubic-bi.com
+    - user:neilaathey@gmail.com
+
+  roles/iam.roleAdmin:
+    - serviceAccount:${current_project_id}@cloudservices.gserviceaccount.com
+
+  # roles/serviceusage.serviceUsageConsumer:
+  #   - serviceAccount:master-api-reader@${current_project_id}.iam.gserviceaccount.com
+  #   - serviceAccount:processor-sa@${current_project_id}.iam.gserviceaccount.com
+
+  # roles/storage.admin:
+  #   - serviceAccount:${project_number.cubicbi-dev}@cloudbuild.gserviceaccount.com
+  #   - serviceAccount:processor-sa@${current_project_id}.iam.gserviceaccount.com
+
+  # roles/storage.objectViewer:
+  #   - serviceAccount:processor-sa@${current_project_id}.iam.gserviceaccount.com
+
+  # roles/workflows.serviceAgent:
+  #   - serviceAccount:service-${project_number.cubicbi-dev}@gcp-sa-workflows.iam.gserviceaccount.com

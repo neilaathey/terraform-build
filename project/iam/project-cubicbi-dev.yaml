@@ -70,7 +70,7 @@ permissions:
 
   roles/bigquery.admin:
     #- serviceAccount:processor-sa@${current_project_id}.iam.gserviceaccount.com
-    - neil@cubic-bi.com
+    - user:neil@cubic-bi.com
     - user:neil.athey@itv.com
     - user:neilaathey@gmail.com
 

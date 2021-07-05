@@ -1,16 +1,16 @@
 # # Add triggers to this file to apply to all GCP projects
 triggers:
-#   00-iam:
-#     type: terraform
-#     cloudbuild_path: project/iam/cloudbuild.yaml
-#     branch_regex: ^master$
-#     included_files:
-#       - project/iam/*.tf
-#       - project/iam/project-${project_id}.yaml
-#       - project/iam/common-settings.yaml
-#     substitutions: {}
-#     extra_attributes: 
-#       disabled: false
+  00-iam:
+    type: terraform
+    cloudbuild_path: project/iam/cloudbuild.yaml
+    branch_regex: ^master$
+    included_files:
+      - project/iam/*.tf
+      - project/iam/project-${project_id}.yaml
+      - project/iam/common-settings.yaml
+    substitutions: {}
+    extra_attributes: 
+      disabled: false
 
 #   00-triggers:
 #     type: terraform

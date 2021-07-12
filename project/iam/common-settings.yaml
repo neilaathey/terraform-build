@@ -1,6 +1,8 @@
 project_numbers_dev:
   cubicbi-dev: '65942280241'
-
+  cubicbi-tst: '679373877070'
+  cubicbi-uat: '1061668656635'
+  
 project_numbers_prd:  {} #none yet
 
 custom_roles: {} # None yet

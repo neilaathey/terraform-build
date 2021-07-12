@@ -1,0 +1,18 @@
+steps:
+
+- id: setup terraform infra
+  name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim_cloudbuild_cache'
+  dir: 'project/terraform'
+  entrypoint: 'bash'
+  args:
+   - -c
+   - |
+      gcloud --project=${PROJECT_ID} deployment-manager deployments describe infra-terraform
+      if [ $? -eq 0 ]; then
+          action="update"
+      else
+          action="create"
+      fi
+      gcloud --project=${PROJECT_ID} deployment-manager deployments ${action} infra-terraform --config=infra.yaml
+
+tags: ['cubicbi-service-infra-terraform']

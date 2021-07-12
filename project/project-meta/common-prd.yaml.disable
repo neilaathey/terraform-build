@@ -1,0 +1,11 @@
+secret_project_id: "bi-shared-secrets-prd"
+notifications:
+  channels:
+    cato-bi-gcp-slack:
+      channel: "#cato-bi-barb-notifications-prd"
+      description: "GCP Alert Channel - PROD (Slack)"
+      type: "slack"
+    cato-bi-gcp-email:
+      email_address: "cato-bi-gcp-notifications-prd-group@itv.com"
+      description: "GCP Alert Channel - PROD (Email)"
+      type: "email"

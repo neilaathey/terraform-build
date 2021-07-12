@@ -1,0 +1,11 @@
+imports:
+  - path: gcs-bucket.jinja
+    name: gcs-bucket.jinja
+
+resources:
+  - name: tfstate-bucket
+    type: gcs-bucket.jinja
+    properties:
+      bucketName: tfstate
+      versioning: true
+      uniformBucketLevelAccess: true

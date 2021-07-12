@@ -1,6 +1,6 @@
 substitutions:
-  _TERRAFORM_VERSION: 0.14.4
-  _TERRAGRUNT_VERSION: 0.27.1
+  _TERRAFORM_VERSION: 1.0.1
+  _TERRAGRUNT_VERSION: 0.31.0
   _DIR: project/build-steps/step-terragrunt
 
 steps:

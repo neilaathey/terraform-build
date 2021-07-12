@@ -1,0 +1,7 @@
+permissions:
+  roles/owner:
+    - serviceAccount:${project_number.cubicbi-uat}@cloudbuild.gserviceaccount.com
+    - serviceAccount:${project_number.cubicbi-uat}@cloudservices.gserviceaccount.com
+
+  roles/storage.admin:
+    - serviceAccount:${project_number.cubicbi-uat}@cloudbuild.gserviceaccount.com

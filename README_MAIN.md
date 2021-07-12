@@ -16,6 +16,50 @@ Enable:
 BigQuery
 BigQuery data transfer service
 Cloud Functions
+sourcerepo.googleapis.com
+IAM
+
+# SCRIPTED PROJECT SET UP
+-Use WSL (instead of Git Bash which is limited - see following gitbash notes)
+<!-- -Use Git bash in VSC to run commands:  
+    Open the command palette using Ctrl + Shift + P.
+    Type - Select Default Profile
+    Select Git Bash from the options
+    Click on the + icon in the terminal window
+    The new terminal now will be a Git Bash terminal. Give it a few seconds to load Git Bash
+    You can now toggle between the different terminals as well from the dropdown in terminal. -->
+
+1. Create new project either manually or by running bash: $<repo root>$ project/setup/new_project.sh <new project name>
+    -NOTE: /r errros etc indicate incompatible CRLF-LF setting on the bash file - open and save it with 'LF' (bottom right of VSC window)
+2. Enable billing - this should be set by new_project.sh but if errors can be done manually once new project is created.
+    NOTE: this seems to require admin perms so restarted VSC as admin then run this:
+        gcloud beta billing projects link "<new project name>" --billing-account=<billing acccount number>
+        note: only 3 projects allowed per billing acct as standard - request more through contacting Google. 
+3. Run:  root$ project/setup/setup_project_part1.sh <project>
+    This should enable all APIs required - if not run _enable_apis.sh
+
+NOTE: The setup script isn't programmed to work with Git Bash (echo $OSTYPE=msys ) - so best use Windows Subsystem For Linux WSL2
+
+In WSL:
+ - make sure the bash file CRLF-LF type to be run is set to 'LF'  (CRLF causes errors)
+ - https://code.visualstudio.com/docs/remote/troubleshooting#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files
+ - install WSL VSC extension and configure.  
+ - open WSL and cd to project root.  Type . code to open (administrator) VSC WSL session - open Terminal, if not already open.
+ - install python3:
+    python3 --version       #to check if installed already
+    sudo apt update && upgrade
+    sudo apt install python3 python3-pip ipython3
+
+-follow instructions output from part1.sh:
+3.1 Follow steps to enable CloudBuild API and connect Git repo: https://cloud.google.com/cloud-build/docs/automating-builds/create-github-app-triggers
+3.2 Add new project name to:  project/iam/common-settings.yaml
+3.3 Visit https://console.cloud.google.com/monitoring/settings/usage?authuser=0&project=<new project name> to initialise StackDriver monitoring workspace
+3.4 Commit new files and changes into Git (I used Windows VSC version for this to save setting up Gitbash in WSL)
+
+4. Set account config to active logged-in account: gcloud config set account neil@cubic-bi.com
+4.1 Set project: gcloud config set project cubicbi-tst
+5. Add new project number to:  project/iam/common-settings.yaml
+6. Manually connect Github repo to the new project: https://cloud.google.com/cloud-build/docs/automating-builds/create-github-app-triggers
 
 
 # DOCKER
@@ -41,7 +85,9 @@ docker buillder prune
     - change versions in cloudbuild.yaml
     - redeploy and rebuild using terragrunt-trigger - note the images are stored in a different project (although a trigger does exist on barb-files-dev)
     - 
-    - to te
+    - to test - set the terragrunt image reference in cloudbuild.yaml to the dev docker image 
+        ie   name: 'gcr.io/bi-builds-prd/terragrunt' to   name: 'gcr.io/bi-builds-dev/terragrunt'
+
 
 
 # GIT

@@ -1,0 +1,18 @@
+substitutions:
+  _DIR: 'project/infra/temp'
+  _APP: 'temp-infra'
+  _TF_ACTION: 'apply'
+steps:
+
+- id: 'tf plan/apply'
+  name: 'gcr.io/cubicbi-dev/terragrunt'
+  dir: '${_DIR}/${PROJECT_ID}'
+  args:
+  - '${_TF_ACTION}'
+  env:
+  - 'PULL_REQUEST_ID=$_PR_NUMBER'
+  - 'BRANCH=$BRANCH_NAME'
+
+options:
+    substitution_option: 'ALLOW_LOOSE'
+tags: ['barb-service-${_APP}-${_TF_ACTION}']

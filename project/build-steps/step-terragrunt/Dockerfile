@@ -1,7 +1,9 @@
-FROM gcr.io/google.com/cloudsdktool/cloud-sdk:slim_cloudbuild_cache as builder
+#FROM gcr.io/google.com/cloudsdktool/cloud-sdk:slim_cloudbuild_cache as builder
+FROM gcr.io/google.com/cloudsdktool/cloud-sdk:slim as builder
 
-ARG TERRAFORM_VERSION
-ARG TERRAGRUNT_VERSION
+# use these values for building locally - otherwise leave blank for cloud deployment
+ARG TERRAFORM_VERSION=1.0.1
+ARG TERRAGRUNT_VERSION=0.31.0
 
 WORKDIR /builder/terragrunt
 
@@ -13,7 +15,8 @@ RUN unzip terraform_linux_amd64.zip -d /builder/terragrunt
 RUN curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_amd64 -o terragrunt_linux_amd64
 
 
-FROM gcr.io/google.com/cloudsdktool/cloud-sdk:slim_cloudbuild_cache
+#FROM gcr.io/google.com/cloudsdktool/cloud-sdk:slim_cloudbuild_cache
+FROM gcr.io/google.com/cloudsdktool/cloud-sdk:slim
 
 ENV PATH=/builder/terragrunt/:$PATH
 
@@ -30,5 +33,5 @@ COPY post_plan.py /builder/post_plan.py
 COPY entrypoint.bash /builder/entrypoint.bash
 
 RUN chmod +x terraform terragrunt
-RUN chmod +x /builder/entrypoint.bash
+RUN chmod +x /builder/entrypoint.bash           #had to add this
 ENTRYPOINT ["/builder/entrypoint.bash"]

@@ -1,0 +1,13 @@
+resources:
+  
+- name: {{ properties['bucketName'] }}-{{ env['project'] }}
+  type: storage.v1.bucket
+  properties:
+    location: {{ properties['region']|default('EU') }}
+    kind: storage#bucket
+    storageClass: {{ properties['storageClass']|default('STANDARD') }}
+    versioning:
+      enabled: {{ properties['versioning']|default('false') }}
+    iamConfiguration:
+      uniformBucketLevelAccess:
+        enabled: {{ properties['uniformBucketLevelAccess']|default('false') }}

@@ -1,0 +1,87 @@
+data "google_secret_manager_secret_version" "slack_token" {
+  secret  = "slack-auth-token"
+  project = local.secret_project_id
+}
+
+resource "google_monitoring_notification_channel" "slack_channel" {
+  for_each = { for key, value in merge(
+    lookup(lookup(local.common_settings, "notifications", {}), "channels", {}),
+    lookup(lookup(local.project_config, "notifications", {}), "channels", {})) :
+    key => value
+    if value.type == "slack"
+  }
+  display_name = each.key
+  description  = each.value["description"]
+  type         = "slack"
+  labels = {
+    channel_name = each.value["channel"]
+  }
+  project = var.project_id
+  enabled = true
+
+  sensitive_labels {
+    auth_token = data.google_secret_manager_secret_version.slack_token.secret_data
+  }
+}
+
+resource "google_monitoring_notification_channel" "email_channel" {
+  for_each = { for key, value in merge(
+    lookup(lookup(local.common_settings, "notifications", {}), "channels", {}),
+    lookup(lookup(local.project_config, "notifications", {}), "channels", {})) :
+    key => value
+    if value.type == "email"
+  }
+  display_name = each.key
+  type         = "email"
+  labels = {
+    email_address = each.value["email_address"]
+  }
+  project = var.project_id
+  enabled = true
+}
+
+resource "google_monitoring_notification_channel" "pubsub_channel" {
+  for_each = { for key, value in merge(
+    lookup(lookup(local.common_settings, "notifications", {}), "channels", {}),
+    lookup(lookup(local.project_config, "notifications", {}), "channels", {})) :
+    key => value
+    if value.type == "pubsub"
+  }
+  display_name = each.key
+  type         = "pubsub"
+  labels = {
+    topic = each.value["topic"]
+  }
+  project = var.project_id
+  enabled = true
+}
+
+output "notification_channel" {
+  value = merge(
+    {
+      for notification in google_monitoring_notification_channel.slack_channel :
+      notification.display_name => {
+        id   = notification.id
+        name = notification.name
+        type = notification.type
+      }
+    },
+    {
+      for notification in google_monitoring_notification_channel.email_channel :
+      notification.display_name => {
+        id   = notification.id
+        name = notification.name
+        type = notification.type
+      }
+    },
+    {
+      for notification in google_monitoring_notification_channel.pubsub_channel :
+      notification.display_name => {
+        id   = notification.id
+        name = notification.name
+        type = notification.type
+      }
+    }
+  )
+  description = "Stackdriver notification channel lookup."
+}

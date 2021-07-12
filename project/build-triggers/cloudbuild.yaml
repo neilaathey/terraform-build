@@ -16,4 +16,4 @@ steps:
 options:
     substitution_option: 'ALLOW_LOOSE'
 timeout: 1200s
-tags: ['barb-service-${_APP}-${_TF_ACTION}']
+tags: ['cubic-service-${_APP}-${_TF_ACTION}']

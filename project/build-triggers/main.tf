@@ -5,7 +5,6 @@ terraform {
     google-beta = ">= 3.1"
   }
   backend "gcs" {
-    bucket = "cubicbi-dev-tf-state"      
     prefix = "project/build-triggers"
   }
 }

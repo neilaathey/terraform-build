@@ -4,18 +4,11 @@ substitutions:
   _TF_ACTION: 'apply'
 
 steps:
-#  # 0. Initialise Terraform environment
-# -  id: terraform-init
-#    name: hashicorp/terraform:0.13.5
-#    dir: '${_DIR}'   
-#    args: ['init -input=false'] 
-
- # 1. Apply tf plan using custom terragrunt docker image 
 - id: 'tf plan/apply'
   name: 'gcr.io/cubicbi-dev/terragrunt'
   dir: '${_DIR}'
   args:
-  - 'apply'
+  - '${_TF_ACTION}'
   env:
   - 'PULL_REQUEST_ID=$_PR_NUMBER'
   - 'BRANCH=$BRANCH_NAME'
@@ -23,4 +16,4 @@ steps:
 options:
     substitution_option: 'ALLOW_LOOSE'
 timeout: 1200s
-tags: ['cubicbi-${_APP}-${_TF_ACTION}']
+tags: ['barb-service-${_APP}-${_TF_ACTION}']

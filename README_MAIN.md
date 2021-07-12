@@ -42,7 +42,7 @@ NOTE: The setup script isn't programmed to work with Git Bash (echo $OSTYPE=msys
 
 In WSL:
  - make sure the bash file CRLF-LF type to be run is set to 'LF'  (CRLF causes errors)
- - https://code.visualstudio.com/docs/remote/troubleshooting#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files
+ - .gitattributes:  https://code.visualstudio.com/docs/remote/troubleshooting#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files
  - install WSL VSC extension and configure.  
  - open WSL and cd to project root.  Type . code to open (administrator) VSC WSL session - open Terminal, if not already open.
  - install python3:
@@ -54,7 +54,11 @@ In WSL:
 3.1 Follow steps to enable CloudBuild API and connect Git repo: https://cloud.google.com/cloud-build/docs/automating-builds/create-github-app-triggers
 3.2 Add new project name to:  project/iam/common-settings.yaml
 3.3 Visit https://console.cloud.google.com/monitoring/settings/usage?authuser=0&project=<new project name> to initialise StackDriver monitoring workspace
-3.4 Commit new files and changes into Git (I used Windows VSC version for this to save setting up Gitbash in WSL)
+3.4 Commit new files and changes into Git - ( I set up git in WSL to keep within same session and check in amanded line endings=LF): https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
+3.5 Manually: Give new cloudbuild service account permission to access the docker image on whichever project(s) it sits - Project Owner ie cubicbi-dev
+
+-setup_part2.sh:
+3.6 
 
 4. Set account config to active logged-in account: gcloud config set account neil@cubic-bi.com
 4.1 Set project: gcloud config set project cubicbi-tst

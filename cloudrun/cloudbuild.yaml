@@ -1,7 +1,7 @@
 substitutions:
   _DIR: cloudrun
-  _CR_NAME: CCIDS-Master-Processor
-  _PORT: 8080
+  _CR_NAME: 'CCIDS-Master-Processor'
+  _PORT: '8080'
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'

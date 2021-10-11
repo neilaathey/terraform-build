@@ -1,0 +1,28 @@
+substitutions:
+  _DIR: cloudrun
+  _CR_NAME: CCIDS-Master-Processor
+  _PORT: 8080
+
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    dir: $_DIR
+    env:
+    - 'PORT=${_PORT}'
+    - 'CR_NAME=${_CR_NAME}'
+    args:
+    - 'build'
+    - '--build-arg'
+    - CR_NAME=${_CR_NAME}    
+    - '--build-arg'
+    - PORT=${_PORT}
+    - '--tag'
+    - 'gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}'
+    - '--tag'
+    - 'gcr.io/${PROJECT_ID}/cloudrun:latest'
+    - '.'
+
+images:
+- 'gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}'
+- 'gcr.io/${PROJECT_ID}/cloudrun:latest'
+
+tags: ['barb-service-step-cloudrun']

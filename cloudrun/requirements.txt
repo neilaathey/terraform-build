@@ -1,0 +1,14 @@
+#slackclient==2.9.3
+google-cloud-bigquery==2.13.1
+#gs_chunked_io==0.5.2
+ndjson==0.3.1
+google-auth==1.29.0
+google-cloud-storage==1.37.1
+google-cloud-logging==1.15.1
+google-cloud-pubsub==2.4.1
+google-cloud-secret-manager==2.0.0
+#PyYAML==5.4.1
+#pandas==1.1.1 #using version 1.2 causes an error "TypeError: a bytes-like object is required, not 'str'" in read_fwf
+#pyarrow==3.0.0
+Flask==2.0.1
+gunicorn==20.1.0

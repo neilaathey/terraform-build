@@ -35,3 +35,11 @@ triggers:
     substitutions: {}
     extra_attributes: {}
 
+  neils-cloudrun-trigger:
+    type: terraform
+    cloudbuild_path: cloudrun/cloudbuild.yaml
+    included_files:
+      - cloudrun/**
+    substitutions: {}
+    extra_attributes: {}
+

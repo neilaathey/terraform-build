@@ -11,10 +11,6 @@ variable "project_id" {
   default = "cubicbi-dev"
 }
 
-# output "test_output" {
-#   value = "Hello Neil!"  
-# }
-
 resource "google_cloud_run_service" "default" {
   name     = "gcp-cloud-run-tf-v2-using-cloudbuild-image"
   location = "europe-west2"

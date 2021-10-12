@@ -1,7 +1,7 @@
 substitutions:
 # cloud run image vars
   _DIR: cloudrun
-  _CR_NAME: 'cr-test-cloud-run'
+  _CR_NAME: 'CRImage'
   _PORT: '8080'
 # terraform apply vars
   #_DIR: 'application_modules/file_transfer/cf_file_transfer'  

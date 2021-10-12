@@ -40,6 +40,4 @@ steps:
 options:
     substitution_option: 'ALLOW_LOOSE'
 
-tags:
-  ['barb-service-step-cloudrun'] 
-  ['barb-service-${_APP}-${_TF_ACTION}']
+tags:  ['barb-service-step-cloudrun','barb-service-${_APP}-${_TF_ACTION}']

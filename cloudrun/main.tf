@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    prefix = "cloudrun"
+    prefix = "cloudrun-ondev"
     bucket = "cubicbi-dev-tf-state"
   }
 }

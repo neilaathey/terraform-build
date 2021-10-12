@@ -3,16 +3,13 @@ substitutions:
   _DIR: cloudrun
   _CR_NAME: 'CRImage'
   _PORT: '8080'
-# terraform apply vars
-  #_DIR: 'application_modules/file_transfer/cf_file_transfer'  
   _APP: 'cr-test-cloud-run'
   _TF_ACTION: 'apply'
 
   
 steps:
-
-- id: 'build-cr-docker-image'
-  name: 'gcr.io/cloud-builders/docker'
+  # docker build 
+- name: 'gcr.io/cloud-builders/docker'
   dir: $_DIR
   env:
   - 'PORT=${_PORT}'
@@ -29,12 +26,12 @@ steps:
   - 'gcr.io/${PROJECT_ID}/cloudrun:latest'
   - '.'
 
-  images:
+images:
   - 'gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}'
   - 'gcr.io/${PROJECT_ID}/cloudrun:latest'
 
-- id: 'tf plan/apply'
-  name: 'gcr.io/cubicbi-dev/terragrunt'
+# 'tf plan/apply'
+- name: 'gcr.io/cubicbi-dev/terragrunt'
   dir: '${_DIR}'
   args:
   - '${_TF_ACTION}'

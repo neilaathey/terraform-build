@@ -6,7 +6,6 @@ substitutions:
   _APP: 'cr-test-cloud-run'
   _TF_ACTION: 'apply'
 
-  
 steps:
   # docker build 
 - name: 'gcr.io/cloud-builders/docker'
@@ -27,7 +26,17 @@ steps:
   - '.'
 images: ['gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}', 'gcr.io/${PROJECT_ID}/cloudrun:latest']
 
-  # 'tf plan/apply'
+---
+substitutions:
+# cloud run image vars
+  _DIR: cloudrun
+  _CR_NAME: 'CRImage'
+  _PORT: '8080'
+  _APP: 'cr-test-cloud-run'
+  _TF_ACTION: 'apply'
+
+steps:
+# 'tf plan/apply'
 - name: 'gcr.io/cubicbi-dev/terragrunt'
   dir: '${_DIR}'
   args:

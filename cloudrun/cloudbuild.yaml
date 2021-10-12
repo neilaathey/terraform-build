@@ -1,7 +1,13 @@
 substitutions:
+# cloud run image vars
   _DIR: cloudrun
-  _CR_NAME: 'CCIDS-Master-Processor'
+  _CR_NAME: 'cr-test-cloud-run'
   _PORT: '8080'
+# terraform apply vars
+  #_DIR: 'application_modules/file_transfer/cf_file_transfer'  
+  _APP: 'cr-test-cloud-run'
+  _PACKAGES_DIR: 'code/packages'
+  _TF_ACTION: 'apply'
 
 steps:
 - id: 'build-cr-docker-image'
@@ -20,10 +26,20 @@ steps:
   - 'gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}'
   - '--tag'
   - 'gcr.io/${PROJECT_ID}/cloudrun:latest'
-  - '.'
+- '.'
 
-images:
-- 'gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}'
-- 'gcr.io/${PROJECT_ID}/cloudrun:latest'
+- id: 'tf plan/apply'
+  name: 'gcr.io/cubicbi-dev/terragrunt'
+  dir: '${_DIR}'
+  args:
+  - '${_TF_ACTION}'
+  env:
+  - 'PULL_REQUEST_ID=$_PR_NUMBER'
+  - 'BRANCH=$BRANCH_NAME'
 
-tags: ['barb-service-step-cloudrun']
+options:
+    substitution_option: 'ALLOW_LOOSE'
+
+tags:
+  ['barb-service-step-cloudrun'] 
+  ['barb-service-${_APP}-${_TF_ACTION}']

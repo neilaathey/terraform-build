@@ -24,8 +24,8 @@ resource "google_cloud_run_service" "default" {
     spec {
       timeout_seconds = 600
       containers {
-        image = "gcr.io/cubicbi-dev/cloudrun"  
-        //"gcr.io/cubicbi-cloudrun/gcp-cloud-run-v-2"
+        image = "gcr.io/cubicbi-dev/cloudrun:CRImage"  
+        #"gcr.io/cubicbi-cloudrun/gcp-cloud-run-v-2"
       }
     }
   }

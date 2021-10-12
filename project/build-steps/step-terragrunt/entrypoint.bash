@@ -24,7 +24,7 @@ fi
 echo "################ Project_ID:-${PROJECT_ID}"
 echo "Initialising terraform in docker image"
 
-terraform init -input=false -lock-timeout=5m -backend-config="bucket=tfstate-${PROJECT_ID}" || exit 1
+terraform init -input=false -backend-config="bucket=tfstate-${PROJECT_ID}" || exit 1
 
 if [[ -f "tmp/import-${PROJECT_ID}.sh" ]]; then
     cat <<EOF > "tmp/import-${PROJECT_ID}-sanitized.sh"

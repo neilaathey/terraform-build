@@ -62,6 +62,7 @@ def index():
             logger.error('error: %s', error_message)
             return f'Bad Request: {error_message}', 400
 
+        logger.info("########## BYE BYE FROM PYTHON ############")
         return ("", 204)
 
 

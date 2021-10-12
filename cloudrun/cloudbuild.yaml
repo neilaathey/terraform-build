@@ -6,7 +6,6 @@ substitutions:
 # terraform apply vars
   #_DIR: 'application_modules/file_transfer/cf_file_transfer'  
   _APP: 'cr-test-cloud-run'
-  _PACKAGES_DIR: 'code/packages'
   _TF_ACTION: 'apply'
 
   
@@ -30,6 +29,10 @@ steps:
   - 'gcr.io/${PROJECT_ID}/cloudrun:latest'
   - '.'
 
+  images:
+  - 'gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}'
+  - 'gcr.io/${PROJECT_ID}/cloudrun:latest'
+
 - id: 'tf plan/apply'
   name: 'gcr.io/cubicbi-dev/terragrunt'
   dir: '${_DIR}'
@@ -38,6 +41,7 @@ steps:
   env:
   - 'PULL_REQUEST_ID=$_PR_NUMBER'
   - 'BRANCH=$BRANCH_NAME'
+
 
 options:
     substitution_option: 'ALLOW_LOOSE'

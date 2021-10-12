@@ -27,7 +27,7 @@ steps:
   - '.'
 images: ['gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}', 'gcr.io/${PROJECT_ID}/cloudrun:latest']
 
-# 'tf plan/apply'
+  # 'tf plan/apply'
 - name: 'gcr.io/cubicbi-dev/terragrunt'
   dir: '${_DIR}'
   args:

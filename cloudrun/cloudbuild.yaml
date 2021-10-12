@@ -9,6 +9,7 @@ substitutions:
   _PACKAGES_DIR: 'code/packages'
   _TF_ACTION: 'apply'
 
+  
 steps:
 
 - id: 'build-cr-docker-image'
@@ -20,13 +21,14 @@ steps:
   args:
   - 'build'
   - '--build-arg'
-  - CR_NAME=${_CR_NAME}    
+  - CR_NAME=${_CR_NAME}
   - '--build-arg'
   - PORT=${_PORT}
   - '--tag'
   - 'gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}'
   - '--tag'
   - 'gcr.io/${PROJECT_ID}/cloudrun:latest'
+  - '.'
 
 - id: 'tf plan/apply'
   name: 'gcr.io/cubicbi-dev/terragrunt'

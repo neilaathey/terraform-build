@@ -1,0 +1,19 @@
+substitutions:
+# cloud run image vars
+  _DIR: cloudrun/infra
+  _APP: 'cr-cloud-run-service'
+  _TF_ACTION: 'apply'
+
+steps:
+# 'tf plan/apply'
+- name: 'gcr.io/cubicbi-dev/terragrunt'
+  dir: '${_DIR}'
+  args:
+  - '${_TF_ACTION}'
+  env:
+  - 'PULL_REQUEST_ID=$_PR_NUMBER'
+  - 'BRANCH=$BRANCH_NAME'
+
+options:
+    substitution_option: 'ALLOW_LOOSE'
+tags:  ['cloudrun-service']

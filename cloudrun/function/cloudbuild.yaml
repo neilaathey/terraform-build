@@ -1,6 +1,6 @@
 substitutions:
 # cloud run image vars
-  _DIR: cloudrun
+  _DIR: cloudrun/function
   _CR_NAME: 'CRImage'
   _PORT: '8080'
   _APP: 'cr-test-cloud-run'
@@ -25,27 +25,4 @@ steps:
   - 'gcr.io/${PROJECT_ID}/cloudrun:latest'
   - '.'
 images: ['gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}', 'gcr.io/${PROJECT_ID}/cloudrun:latest']
-
----
-substitutions:
-# cloud run image vars
-  _DIR: cloudrun
-  _CR_NAME: 'CRImage'
-  _PORT: '8080'
-  _APP: 'cr-test-cloud-run'
-  _TF_ACTION: 'apply'
-
-steps:
-# 'tf plan/apply'
-- name: 'gcr.io/cubicbi-dev/terragrunt'
-  dir: '${_DIR}'
-  args:
-  - '${_TF_ACTION}'
-  env:
-  - 'PULL_REQUEST_ID=$_PR_NUMBER'
-  - 'BRANCH=$BRANCH_NAME'
-
-
-options:
-    substitution_option: 'ALLOW_LOOSE'
-tags:  ['barb-service-step-cloudrun']
+tags:  ['cloudrun-function']

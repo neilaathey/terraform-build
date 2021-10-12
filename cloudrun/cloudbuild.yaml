@@ -10,6 +10,7 @@ substitutions:
   _TF_ACTION: 'apply'
 
 steps:
+
 - id: 'build-cr-docker-image'
   name: 'gcr.io/cloud-builders/docker'
   dir: $_DIR
@@ -26,7 +27,6 @@ steps:
   - 'gcr.io/${PROJECT_ID}/cloudrun:${_CR_NAME}'
   - '--tag'
   - 'gcr.io/${PROJECT_ID}/cloudrun:latest'
-- '.'
 
 - id: 'tf plan/apply'
   name: 'gcr.io/cubicbi-dev/terragrunt'
@@ -39,5 +39,4 @@ steps:
 
 options:
     substitution_option: 'ALLOW_LOOSE'
-
 tags:  ['barb-service-step-cloudrun']
